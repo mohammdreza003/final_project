@@ -40,7 +40,7 @@ export class Interface{
                 
                 }else if (menu === 3){
 
-                    break
+                    
 
                 }else if (menu === 4){
 
@@ -53,15 +53,13 @@ export class Interface{
     user_login(){
         const national_number = prompt('enter national number:');
         const password = prompt('enter password:');
-        let this.logic.user_Login(national_number , password);
-
-        
-
-
+        let a= this.logic.user_Login(national_number , password);
     };
 
     user_sign_in(){
-        
+        while (true){
+            
+        }
     };
 
     manager_menu(){
