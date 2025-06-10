@@ -4,7 +4,15 @@ export  class Logic{
         this.database = DataBase;
 
     }
-    // user_login(national_number , password){
-    //     if ()
-    // }
+    user_login(key , password){
+        // let a = this.database.display()
+        // console.log(a);
+        
+        let search = this.database.search(key);
+        console.log(search);
+
+        if(search){
+            if (password.trim() == search.password.trim())return true;
+        }return false;
+    }
 }

@@ -1,111 +1,153 @@
-
 export class Dynamichash{
     constructor(){
-        this.size = 11;
-
+        this.size = 211; 
         this.table = Array(this.size).fill(null);
         this.num_element = 0;
-        this.deleted = 'deleted';
+        this.deleted = 'deleted_slot'; 
     };
-
 
     _hash_Function(key){
-        let a = 0.6188033;
-        return parseInt(this.size *((key * a) % 1));
+        let a = 0.6188033; 
+        return parseInt(this.size * ((Number(key) * a) % 1));
     };
 
+    _next_probe_index(initial_hash, probe_count){
+        return (initial_hash + probe_count * probe_count) % this.size;
+    };
 
     _reHash(new_size){
         const old_table = this.table;
         this.table = Array(new_size).fill(null);
         this.size = new_size;
-        this.num_element = 0;
+        this.num_element = 0; 
         this._rehash_item(old_table);
-        
     };
 
-
     _resize_if_needed(){
-        const loud_factor = this.num_element / this.size;
-        if (loud_factor>=0.75){
-            this._reHash(this.size*2);
-        }else if(loud_factor<0.25 && this.size >11){
-            this._reHash(this.size / 2 | 0);
+        const load_factor = this.num_element / this.size;
+        if (load_factor >= 0.75){ 
+            this._reHash(this.size * 2); 
+        } else if (load_factor < 0.25 && this.size > 211){ 
+            this._reHash(Math.floor(this.size / 2)); 
         };
     };
 
-   _rehash_item(old_table){
-    old_table.forEach(item => {
-        if (item != null && item != this.deleted){
-            this._insert_without_resize(item);
-        }
-    });
+    _rehash_item(old_table){
+        old_table.forEach(item => {
+            if (item !== null && item !== this.deleted){
+                this._insert_without_resize(item.key, item); 
+            }
+        });
     };
 
     _insert_without_resize(key , data){
-        let index = this._hash_Function(key);
-        let i = 0;
-        while(this._is_slot_taken(index)){
-            if (this.table[index] == key){
+        let initial_hash = this._hash_Function(key);
+        let i = 0; 
+
+        while(i < this.size){ 
+            let current_index = this._next_probe_index(initial_hash, i);
+            const current_slot_value = this.table[current_index];
+
+            if (current_slot_value === null || current_slot_value === this.deleted){
+                this.table[current_index] = data;
+                this.num_element++;
+                return true;
+            } else if (current_slot_value.key == key){
                 return false;
-            };
-            i++;
-            index = this._next_index(index , i);
-        };
-        this.table[index] = data;
-        this.num_element ++;
-        return true;
+            }
+            
+            i++; 
+        }
+        return false; 
     };
 
     _is_slot_taken(index){
-        return this.table[index] != null && this.table[index] != this.deleted;
+        return this.table[index] !== null && this.table[index] !== this.deleted;
     };
-
-    _next_index(index , i){
-        return (index + i * i)% this.size
-    };
-
 
     insert(key , data){
         this._resize_if_needed();
         return this._insert_without_resize(key , data);
     };
 
+    delete(key){ 
+        let initial_hash = this._hash_Function(key);
+        let i = 0;
 
-    delete(item){
-        let index = this._hash_Function(item);
-        let attempts = 0;
-        const max_attempts = this.size;
-        while(attempts < max_attempts){
-            if (!this._is_slot_taken(index)){
-                break
-            }else if (this.table[index] == item){
-                this._delete_item(index);
-                return true
-            };
-            index = this._next_index(index , attempts)
-            attempts = attempts + 1;
-        };
+        while(i < this.size){ 
+            let current_index = this._next_probe_index(initial_hash, i);
+            const current_slot_value = this.table[current_index];
+
+            if (current_slot_value === null){
+                return false;
+            } else if (current_slot_value === this.deleted){
+            } else if (current_slot_value.key == key){
+                this._delete_item(current_index);
+                return true;
+            }
+            i++;
+        }
         return false;
     };
 
+    search(key){
+        let initial_hash = this._hash_Function(key);
+        let i = 0;
+
+        while(i < this.size){
+            let current_index = this._next_probe_index(initial_hash, i);
+            const current_slot_value = this.table[current_index];
+            
+            if (current_slot_value === null){
+                return null;
+            } else if (current_slot_value === this.deleted){
+            } else if (current_slot_value.key == key){
+                return current_slot_value;
+            }
+            
+            i++;
+        }
+        return null;
+    }   
 
     _delete_item(index){
         this.table[index] = this.deleted;
         this.num_element -- ;
         this._resize_if_needed();
     };
+
     display(){
         let result = ""
         for(let i = 0 ; i<this.size ; i++){
             if(this.table[i] !== null){
-                result += "\n\n" + this.table[i].tostring() + "->";
+                if (this.table[i] !== this.deleted) {
+                    result += "\n\n" + this.table[i].tostring() + "->";
+                } else {
+                    result += "\n\n" + "DELETED->";
+                }
             }
         };
         return result;
     }
-
 };
+// const s = new Dynamichash();
+
+// class Node{
+//     constructor(key , name ){
+//         this.key = key ;
+//         this.name = name ;
 
 
+//     }
+
+//     tostring(){
+//         return `key = ${this.key} name = ${this.name}`
+//     }
+// }
+
+// s.insert(1 , new Node(1, 'ali')) ;
+// s.insert(2 , new  Node(2 , ' reza'))
+// console.log(s.display());
+
+// console.log(s.search(1));
 

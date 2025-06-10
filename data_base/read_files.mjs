@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import { User } from '../nodes/users.mjs';
+import { log } from 'console';
 
 export class Readfile{
     constructor(DataBase){
@@ -21,10 +22,14 @@ export class Readfile{
                         field[3],
                         field[4]
                     );
-                    this.database.file_insert(user_node.nationalnumber , user_node);
-                    console.log(this.database.display());
+                    // console.log(user_node.key);
+                    
+                    this.database.file_insert(user_node.key , user_node);
+                    // console.log(this.database.display());
+                    
                 }
             });
+            
 
         }catch(err){
             console.error(`error reading file kharab: ${err}`);

@@ -1,6 +1,9 @@
 export class Handler{
-    constructor(){
-        
+    constructor(database){
+        this.database = database;   
     }
 
+    search(key) {
+        return this.database.search(key) ;
+    }
 }

@@ -1,7 +1,7 @@
 import { Linkedlist } from "../data_structure/linkedlist.mjs";
 export class User{
-    constructor(nationalnumber , name , lastname , tarikhtavalod , password){
-        this.nationalnumber = nationalnumber;
+    constructor(key , name , lastname , tarikhtavalod , password){
+        this.key = key;
         this.name = name ;
         this.lastname = lastname;
         this.tarikhtavalod = tarikhtavalod;
@@ -9,10 +9,11 @@ export class User{
         this.cars = new Linkedlist();
     }
     tostring(){
-        return `name = ${this.name}
+        return `
+national_number = ${this.key}
+name = ${this.name}
 lastname = ${this.lastname}
 tarikhtavalod = ${this.tarikhtavalod}
-national_number = ${this.nationalnumber}
 password = ${this.password}\n`
 
     }

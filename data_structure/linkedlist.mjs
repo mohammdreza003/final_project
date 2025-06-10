@@ -23,7 +23,7 @@ export class Linkedlist{
         this.end = node;
         
     }
-    }
+    }   
 
     remove_first(){
         let temp = this.head;
