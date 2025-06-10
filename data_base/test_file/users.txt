@@ -1,4 +1,3 @@
-NationalID | FirstName | LastName | DateOfBirth | Password
 5162255107 | Scott | Dean | 1982-04-01 | J692PPdn
 5971312583 | Scott | Jones | 1964-04-02 | 62Dv7N1i
 5889575113 | Matthew | Smith | 1988-03-04 | c7FgOtyw

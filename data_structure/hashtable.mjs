@@ -1,4 +1,4 @@
-class Dynamichash{
+export class Dynamichash{
     constructor(){
         this.size = 11;
 
@@ -34,7 +34,7 @@ class Dynamichash{
     });
 }
 
-    _insert_without_resize(item){
+    _insert_without_resize(key , data){
         let index = this._hash_Function(item);
         let i = 0;
         while(this._is_slot_taken(index)){
@@ -54,9 +54,9 @@ class Dynamichash{
     _next_index(index , i){
         return (index + i * i)% this.size
     };
-    insert(item){
+    insert(key , data){
         this._resize_if_needed();
-        return this._insert_without_resize(item);
+        return this._insert_without_resize(key , data);
     };
     delete(item){
         let index = this._hash_Function(item);
@@ -80,5 +80,10 @@ class Dynamichash{
         this._resize_if_needed();
     };
 
+    display(){
+        for(let i = 0 ; i<this.size ; i++){
+            console.log(this.table[i]);
+        }
 
+    }
 }

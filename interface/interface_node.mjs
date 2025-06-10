@@ -53,7 +53,7 @@ export class Interface{
     user_login(){
         const national_number = prompt('enter national number:');
         const password = prompt('enter password:');
-        let a= this.logic.user_Login(national_number , password);
+        let a = this.logic.user_Login(national_number , password);
     };
 
     user_sign_in(){
