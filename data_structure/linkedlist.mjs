@@ -6,7 +6,7 @@ export class Node{
     }
 }
 
-export class linkedlist{
+export class Linkedlist{
     constructor(){
         this.head = null;
         this.end = null;
