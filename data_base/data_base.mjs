@@ -4,14 +4,13 @@ import { Dynamichash } from "../data_structure/hashtable.mjs";
 export class DataBase{
     constructor(){
         this.user_login = new Dynamichash();
-        this.licenswPlate = new Dynamichash();
+        this.licensePlate = new Dynamichash();
 
     };
-    file_insert(user_node){
-        return this.user_login.insert(user_node.nationalnumber, user_node)
+    file_insert(key , node){
+        return this.user_login.insert(key, node)
     };
-
-    
-
-
+    display(){
+        return this.user_login.display();   
+    }
 }

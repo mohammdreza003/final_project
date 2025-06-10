@@ -1,23 +1,19 @@
 import { Linkedlist } from "../data_structure/linkedlist.mjs";
 export class User{
-    constructor(name , lastname , tarikhtavalod , nationalnumber , cars){
-        this.name = name;
+    constructor(nationalnumber , name , lastname , tarikhtavalod , password){
+        this.nationalnumber = nationalnumber;
+        this.name = name ;
         this.lastname = lastname;
         this.tarikhtavalod = tarikhtavalod;
-        this.nationalnumber = nationalnumber;
+        this.password = password;
         this.cars = new Linkedlist();
     }
-    addCar(){
-        
-    }
-
-    totring(){
-        return `name = ${this.name} \n lastname = ${this.lastname} \n
-            tarikhtavalod = ${this.tarikhtavalod} \n national_number = ${this.nationalnumber}\n
-            
-            
-
-         `
+    tostring(){
+        return `name = ${this.name}
+lastname = ${this.lastname}
+tarikhtavalod = ${this.tarikhtavalod}
+national_number = ${this.nationalnumber}
+password = ${this.password}\n`
 
     }
 }
