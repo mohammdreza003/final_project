@@ -89,7 +89,7 @@ export class Dynamichash{
         }
         return false;
     };
-
+// 104
     search(key){
         let initial_hash = this._hash_Function(key);
         let i = 0;
@@ -101,7 +101,7 @@ export class Dynamichash{
             if (current_slot_value === null){
                 return null;
             } else if (current_slot_value === this.deleted){
-            } else if (current_slot_value.key == key){
+            } else if (current_slot_value ? current_slot_value.key == key : false){
                 return current_slot_value;
             }
             
@@ -130,24 +130,3 @@ export class Dynamichash{
         return result;
     }
 };
-// const s = new Dynamichash();
-
-// class Node{
-//     constructor(key , name ){
-//         this.key = key ;
-//         this.name = name ;
-
-
-//     }
-
-//     tostring(){
-//         return `key = ${this.key} name = ${this.name}`
-//     }
-// }
-
-// s.insert(1 , new Node(1, 'ali')) ;
-// s.insert(2 , new  Node(2 , ' reza'))
-// console.log(s.display());
-
-// console.log(s.search(1));
-

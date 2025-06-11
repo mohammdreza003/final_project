@@ -32,15 +32,14 @@ export class Interface{
             if (!isNaN(menu)){
                 if (menu === 1){
 
-                    return this.user_login()
+                    return this.user_login();
 
                 }else if (menu === 2){
 
-                    return this.user_sign_in()
+                    return this.user_sign_in();
                 
                 }else if (menu === 3){
-
-                    
+                    return this.user_sign_in();
 
                 }else if (menu === 4){
 
@@ -51,20 +50,33 @@ export class Interface{
         }
     };
     user_login(){
-        const national_number = prompt('enter national number:');
+        let national_number = prompt('enter national number:');
         const password = prompt('enter password:');
-        let a = this.logic.user_Login(national_number , password);
-    };
-
-    user_sign_in(){
-        while (true){
+        national_number = parseInt(national_number);
+        let a = this.logic.user_login(national_number , password);
+        if (a === true){
+            console.log('seccsessful.');
             
+            this.user_secces_login();
+        }else{
+            console.log('not seccsessful!!');
         }
     };
 
-    manager_menu(){
+    user_sign_in(){
+        const nationalNumber = prompt('enter national number :');
+        const name = prompt('enter name:');
+        const lastName = prompt('enter lastName:');
+        const birthday = prompt('enter your birthday:');
+        const password = prompt('enter your password:')
+    };
+    // user_secces_login(){
 
-    }
+    // }
+
+    // manager_menu(){
+
+    // }
 
     run(){
         this.main_Menu();

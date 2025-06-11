@@ -10,6 +10,7 @@ export class User{
     }
     tostring(){
         return `
+        
 national_number = ${this.key}
 name = ${this.name}
 lastname = ${this.lastname}

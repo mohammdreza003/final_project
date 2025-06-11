@@ -1,6 +1,5 @@
 import { promises as fs } from 'fs';
 import { User } from '../nodes/users.mjs';
-import { log } from 'console';
 
 export class Readfile{
     constructor(DataBase){

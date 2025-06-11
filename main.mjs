@@ -11,7 +11,8 @@ const logic = new Logic(handler, dataBase);
 const interface_terminal = new Interface(logic);
 const readFile = new Readfile(dataBase);
 
-
+// await readFile.readUser();
+// interface_terminal.run();
 async function main() {
     try {
         await readFile.readUser();
