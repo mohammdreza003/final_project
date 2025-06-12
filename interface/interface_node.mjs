@@ -68,7 +68,9 @@ export class Interface{
         const name = prompt('enter name:');
         const lastName = prompt('enter lastName:');
         const birthday = prompt('enter your birthday:');
-        const password = prompt('enter your password:')
+        const password = prompt('enter your password:');
+
+        this.logic.user_signIn(nationalNumber , name  , lastName , birthday , password);
     };
     // user_secces_login(){
 

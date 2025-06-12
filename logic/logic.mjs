@@ -12,4 +12,8 @@ export  class Logic{
             if (password.trim() == search.password.trim())return true;
         }return false;
     }
+    user_signIn(nationalNumber , name  , lastName , birthday , password){
+        this.database.user_signIn(nationalNumber , name  , lastName , birthday , password)
+
+    }
 }
