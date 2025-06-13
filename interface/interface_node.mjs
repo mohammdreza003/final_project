@@ -59,7 +59,7 @@ export class Interface{
             
             this.user_secces_login();
         }else{
-            console.log('not seccsessful!!');
+            console.log('failed');
         }
     };
 
@@ -69,8 +69,15 @@ export class Interface{
         const lastName = prompt('enter lastName:');
         const birthday = prompt('enter your birthday:');
         const password = prompt('enter your password:');
+        const check = this.logic.checkPassword(password);
+        if (check){
+        this.logic.user_signIn(nationalNumber , name  , lastName , 
+            birthday , password);
+        console.log('sign in successful');
 
-        this.logic.user_signIn(nationalNumber , name  , lastName , birthday , password);
+        }else {
+            console.log('sign in failed');
+        }
     };
     // user_secces_login(){
 

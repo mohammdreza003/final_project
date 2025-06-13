@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs';
-import { User } from '../nodes/users.mjs';
+import { User } from '../model/users.mjs';
 
 export class Readfile{
     constructor(DataBase){

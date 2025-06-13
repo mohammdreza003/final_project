@@ -1,5 +1,5 @@
 import { Dynamichash } from "../data_structure/hashtable.mjs";
-import {User} from "../nodes/users.mjs"
+import {User} from "../model/users.mjs"
 
 
 export class DataBase{
