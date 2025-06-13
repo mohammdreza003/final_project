@@ -1,8 +1,10 @@
 import promptSync from "prompt-sync";
 const prompt = promptSync();
 export class Interface{
-    constructor(Logic){
+    constructor(Logic , manager_menu , user_menu){
         this.logic = Logic;
+        this.manager_menu = manager_menu;
+        this.user_menu = user_menu;
     };
     main_Menu() {
     while (true) {
@@ -27,43 +29,51 @@ export class Interface{
 }
     user_Main_menu(){
         while (true){
-            const input  = prompt("___user___\n1.login\n2.sign in \n 3.back\n 4.exit\n input:");
-            const menu = parseInt(input);
-            if (!isNaN(menu)){
-                if (menu === 1){
-
-                    return this.user_login();
-
-                }else if (menu === 2){
-
-                    return this.user_sign_in();
-                
-                }else if (menu === 3){
-                    return this.user_sign_in();
-
-                }else if (menu === 4){
-
-                    process.exit(0);
-                
-                }
+            const userOption  = parseInt(prompt("___user___\n1.login\n2.sign in \n 3.back\n 4.exit\n input:"));
+            if (isNaN(userOption)) {
+                return;
             }
+            
+            if (userOption === 1){
+
+                return this.user_login();
+
+            }else if (userOption === 2){
+
+                return this.user_sign_in();
+            
+            }else if (userOption === 3){
+
+                return this.user_sign_in();
+
+            }else if (userOption === 4){
+
+                process.exit(0);
+            
+            }
+            
         }
     };
     user_login(){
-        let national_number = prompt('enter national number:');
+        const national_number = parseInt(prompt('enter national number:'));
+
         const password = prompt('enter password:');
-        national_number = parseInt(national_number);
-        let a = this.logic.user_login(national_number , password);
-        if (a === true){
-            console.log('seccsessful.');
-            
-            this.user_secces_login();
-        }else{
-            console.log('failed');
-        }
+
+        const isAuthenticated = this.logic.user_login(national_number , password);
+
+        if (!isAuthenticated){
+
+            console.log("failed");
+
+            return;
+        } 
+        console.log('succsesful');
+        this.user_menu.userMenuRun(national_number);
+        
     };
 
     user_sign_in(){
+
         const nationalNumber = prompt('enter national number :');
         const name = prompt('enter name:');
         const lastName = prompt('enter lastName:');
@@ -73,21 +83,14 @@ export class Interface{
         if (check){
         this.logic.user_signIn(nationalNumber , name  , lastName , 
             birthday , password);
-        console.log('sign in successful');
+        this.user_menu.userMenuRun(nationalNumber);
 
         }else {
             console.log('sign in failed');
         }
     };
-    // user_secces_login(){
-
-    // }
-
-    // manager_menu(){
-
-    // }
 
     run(){
         this.main_Menu();
-    }
+    };
 }

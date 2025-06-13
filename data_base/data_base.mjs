@@ -20,7 +20,8 @@ export class DataBase{
         return this.user_login.search(key);
     };
     user_signIn(nationalNumber , name  , lastName , birthday , password){
-        return this.user_login.insert(nationalNumber , new User(nationalNumber , name , lastName , birthday ,password))
+        return this.user_login.insert(nationalNumber , new User(nationalNumber , name , lastName , 
+            birthday ,password))
     }
 
 }

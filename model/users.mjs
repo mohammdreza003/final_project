@@ -8,6 +8,12 @@ export class User{
         this.password = password;
         this.cars = new Linkedlist();
     }
+    insert(cars){
+        this.cars.append(cars);
+    }
+    displayCar(){
+        this.cars.display();
+    }
     tostring(){
         return `
 national_number = ${this.key}

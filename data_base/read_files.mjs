@@ -33,6 +33,23 @@ export class Readfile{
         }catch(err){
             console.error(`error reading file kharab: ${err}`);
         }
+    };
+    async readCar(){
+        try{
+            let data = await fs.readFile("./data_base/test_file/cars.txt");
+            let lines = data.split("\n");
+            
+            lines.forEach((line) => {
+                if (line.trim() === "") return;
+                let field = line.trim().split("|");
+                if (field.length === 6){
+                    
+                }
+            });
+        }catch{
+            console.error(`error reading file cars: ${err}`);
+            
+        }
     }
 
 }

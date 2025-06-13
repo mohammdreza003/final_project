@@ -9,7 +9,9 @@ export  class Logic{
         console.log(search);
 
         if(search && search !== undefined){
-            if (password.trim() == search.password.trim())return true;
+            
+            if (password.trim() == search.password.trim()) return true;
+
         }return false;
     };
     checkPassword(password){
@@ -37,5 +39,10 @@ export  class Logic{
         this.database.user_signIn(nationalNumber , name  , lastName ,
              birthday , password)
 
+    }
+    displayCars(national_number){
+        const user = this.database.search(national_number);
+        if (!user) return false;
+        user.display()
     }
 }
