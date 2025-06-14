@@ -40,9 +40,9 @@ export  class Logic{
              birthday , password)
 
     }
-    displayCars(national_number){
-        const user = this.database.search(national_number);
-        if (!user) return false;
-        user.display()
-    }
+    // displayCars(national_number){
+    //     const user = this.database.search(national_number);
+    //     if (!user) return false;
+    //     user.display()
+    // }
 }

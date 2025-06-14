@@ -1,4 +1,3 @@
-CarID | CarName | Year | PlateNumber | Color | OwnerNationalID
 60469 | Samand | 2015 | 34G653-61 | GR | 4040862948
 45636 | Pride | 2014 | 49C419-11 | BL | 5971312583
 35874 | Dena | 2021 | 28A544-22 | BC | 4325209135

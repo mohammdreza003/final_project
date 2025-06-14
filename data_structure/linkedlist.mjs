@@ -11,7 +11,7 @@ export class Linkedlist {
     this.end = null;
   }
 
-  append(data) {
+  insert(data) {
     const node = new Node(data);
     if (this.head === null) {
       this.head = node;

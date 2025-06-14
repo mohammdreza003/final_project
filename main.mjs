@@ -21,7 +21,10 @@ const readFile = new Readfile(dataBase);
 async function main() {
     try {
         await readFile.readUser();
-        await readFile.readCity()
+        await readFile.readCity();
+        await readFile.readCar()
+
+        console.log(dataBase.display(2));
         // interface_terminal.run();
     } catch (error) {
         console.error("error in start:", error);

@@ -6,31 +6,52 @@ import {User} from "../model/users.mjs"
 export class DataBase{
     constructor(){
         this.user_login = new Dynamichash();
-        this.licensePlate = new Dynamichash();
+        this.cars = new Dynamichash();
         this.city = new Linkedlist();
     };
-    file_insert(key , node){
-        return this.user_login.insert(key, node)
+    // change name for clean code
+    // اپشن برای اینه که کد رو خیلی تکرار نکنم و نخواد زیاد تابع بنویسم 
+    insert(key , node , option){
+        switch (option) {
+            case 1:
+                return this.user_login.insert(key , node);
+                
+            case 2:
+                return this.cars.insert(key , node)
+
+            case 3:
+                return this.city.insert(node)
+
+            
+            default:
+                break;
+        }
     };
-    
-    display(){
-        return this.user_login.display();   
+    // use switch for display
+    display(option){
+        switch (option) {
+            case 1:
+                
+                return this.user_login.display(); 
+
+            case 2:
+                return this.cars.display();
+
+            case 3:
+                return this.city.display();
+        
+            default:
+                break;
+        }  
     }
+    // use switch for search
     search(key){
 
         return this.user_login.search(key);
     };
+    // این هم میتونه بهتر بشه 
     user_signIn(nationalNumber , name  , lastName , birthday , password){
         return this.user_login.insert(nationalNumber , new User(nationalNumber , name , lastName , 
             birthday ,password))
     };
-    insertCity(cityNode){
-        this.city.append(cityNode);
-    }
-    displayCity(){
-        return this.city.display();
-
-    }
-
-
 }
