@@ -20,5 +20,8 @@
   "homepage": "https://github.com/mohammdreza003/final_project#readme",
   "dependencies": {
     "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "prettier": "3.5.3"
   }
 }
