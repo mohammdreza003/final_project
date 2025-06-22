@@ -25,7 +25,7 @@ async function main() {
         await readFile.readCar()
 
         console.log(dataBase.display(2));
-        // interface_terminal.run();
+        interface_terminal.run();
     } catch (error) {
         console.error("error in start:", error);
     }
