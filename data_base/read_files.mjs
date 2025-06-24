@@ -71,11 +71,20 @@ export class Readfile {
             field[4],
             field[5]
           );
+<<<<<<< HEAD
           this.database.insert(carnode.key, carnode, 2);
           
         }
       });
     } catch {
+=======
+          this.database.insertCar(carnode.key, carnode);
+          const isCar = this.database.search(carnode.ownerCar);
+          if (isCar) isCar.insert(carnode.key);
+        }
+      });
+    } catch (err) {
+>>>>>>> 9fc5ab5 (feat: :fire: remove display)
       console.error(`error reading file cars: ${err}`);
     }
   }

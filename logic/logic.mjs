@@ -28,7 +28,7 @@ export  class Logic{
                  (character>='A' && character<='Z')) alphabet = true;
 
                 
-                 if (alphabet && number)return true
+                 if (alphabet && number)return true;
 
 
             }

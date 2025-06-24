@@ -6,6 +6,7 @@ export class Cars {
     this.plateNumber = plateNumber;
     this.color = color;
     this.ownerCar = ownerCar;
+    
   }
 
   tostring() {
