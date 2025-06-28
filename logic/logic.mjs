@@ -42,6 +42,9 @@ export  class Logic{
     }
     displayCars(){
         return this.database.displayCars();
+    };
+    displayUsers(){
+        return this.database.displayUsers()
     }
     // displayCars(national_number){
     //     const user = this.database.search(national_number);

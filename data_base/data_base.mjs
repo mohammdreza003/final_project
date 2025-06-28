@@ -51,12 +51,15 @@ export class DataBase{
     displayCars(){
       return this.cars.display();
     }
-    // use switch for search
+    displayUsers(){
+        return this.user_login.display();
+    };
+    
     search(key){
 
         return this.user_login.search(key);
     };
-    // این هم میتونه بهتر بشه 
+    
     user_signIn(nationalNumber , name  , lastName , birthday , password){
         return this.user_login.insert(nationalNumber , new User(nationalNumber , name , lastName , 
             birthday ,password))
