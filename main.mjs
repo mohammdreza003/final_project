@@ -17,20 +17,8 @@ const readFile = new Readfile(dataBase);
 
 // await readFile.readUser();
 // interface_terminal.run();
-async function main() {
-<<<<<<< HEAD
+async function main(){
     try {
-        await readFile.readUser();
-        await readFile.readCity();
-        await readFile.readCar()
-
-        console.log(dataBase.display(2));
-        interface_terminal.run();
-    } catch (error) {
-        console.error("error in start:", error);
-    }
-=======
-  try {
     await readFile.readUser();
     await readFile.readCity();
     await readFile.readCar();
@@ -41,7 +29,6 @@ async function main() {
   } catch (error) {
     console.error("error in start:", error);
   }
->>>>>>> 9fc5ab5 (feat: :fire: remove display)
 }
 
 main();
