@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import { User } from "../model/users.mjs";
 import { Cars } from "../model/cars.mjs";
 import { City } from "../model/citycode.mjs";
+import { log } from "console";
 
 export class Readfile {
   constructor(DataBase) {
@@ -54,7 +55,8 @@ export class Readfile {
       console.error(`error reading file city: ${err}`);
     }
   }
-  async readCar() {
+  // problem in insert car in nods linkedlist
+  async readCar(){
     try {
       let data = await fs.readFile("./data_base/test_file/cars.txt", "utf8");
       let lines = data.split("\n");
@@ -71,20 +73,19 @@ export class Readfile {
             field[4],
             field[5]
           );
-<<<<<<< HEAD
-          this.database.insert(carnode.key, carnode, 2);
-          
-        }
-      });
-    } catch {
-=======
+
           this.database.insertCar(carnode.key, carnode);
           const isCar = this.database.search(carnode.ownerCar);
-          if (isCar) isCar.insert(carnode.key);
+          if (isCar){
+            console.log("*")
+            isCar.insert(carnode.key)
+          } else{
+            console.log("not found!!");
+            
+          }
         }
       });
-    } catch (err) {
->>>>>>> 9fc5ab5 (feat: :fire: remove display)
+    } catch (err){
       console.error(`error reading file cars: ${err}`);
     }
   }

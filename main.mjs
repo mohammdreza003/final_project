@@ -23,7 +23,7 @@ async function main(){
     await readFile.readCity();
     await readFile.readCar();
 
-    console.log(dataBase.display(2));
+    // console.log(dataBase.display(2));
     // interface_terminal.run();
     console.log(dataBase.search(9544838704).displayCar());
   } catch (error) {

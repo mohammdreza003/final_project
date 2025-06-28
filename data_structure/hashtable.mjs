@@ -121,7 +121,7 @@ export class Dynamichash{
         for(let i = 0 ; i<this.size ; i++){
             if(this.table[i] !== null){
                 if (this.table[i] !== this.deleted) {
-                    result += "\n\n" + this.table[i].tostring() + "->";
+                    result += "\n\n" + this.table[i].toString() + "->";
                 } else {
                     result += "\n\n" + "DELETED->";
                 }

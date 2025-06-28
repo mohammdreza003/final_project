@@ -62,23 +62,13 @@ export class Linkedlist {
     }
     return false;
   }
-  search1(data) {
-    let temp = this.head;
-
-    while (temp !== null) {
-      if (temp.data && temp.data.code == data) {
-        return temp.data;
-      }
-      temp = temp.next;
-    }
-    return false;
-  }
+  
   display() {
     let temp = this.head;
     let result = "";
     while (temp !== null) {
       // console.log(temp.data + '->');
-      result += "\n\n" + temp.data.tostring() + " -> ";
+      result += "\n\n" + temp.data.toString() + " -> ";
       // console.log(temp)
       temp = temp.next;
     }

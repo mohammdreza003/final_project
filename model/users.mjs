@@ -14,7 +14,7 @@ export class User {
   displayCar() {
     this.cars.display();
   }
-  tostring() {
+  toString() {
     return `
 national_number = ${this.key}
 name = ${this.name}

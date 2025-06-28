@@ -9,7 +9,7 @@ export class Cars {
     
   }
 
-  tostring() {
+  toString() {
     return `
     car name = ${this.name};
     year = ${this.year};
