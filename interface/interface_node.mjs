@@ -15,7 +15,7 @@ export class Interface {
         if (menu === 1) {
           return this.user_Main_menu();
         } else if (menu === 2) {
-          return this.manager_menu();
+          return this.manager_menu.run();
         } else if (menu === 3) {
           console.log("bay bay ");
           process.exit(0);
@@ -82,6 +82,7 @@ export class Interface {
       console.log("sign in failed");
     }
   }
+ 
 
   run() {
     this.main_Menu();

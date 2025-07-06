@@ -51,4 +51,11 @@ export  class Logic{
     //     if (!user) return false;
     //     user.display()
     // }
+    displayCarInCity(cityName){
+        const cityCode = this.database.citySearch(cityName);
+        if (!cityCode) return false;
+        const cars = this.database.displayCarInCity(cityCode);
+        if (!cars) return false;
+        return cars;
+    }
 }

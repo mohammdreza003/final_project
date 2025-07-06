@@ -11,7 +11,7 @@ export class DataBase{
         this.city = new Linkedlist();
     };
     // change name for clean code
-    // اپشن برای اینه که کد رو خیلی تکرار نکنم و نخواد زیاد تابع بنویسم 
+    // change switch insert
     insert(key , node , option){
         switch (option) {
             case 1:
@@ -63,5 +63,25 @@ export class DataBase{
     user_signIn(nationalNumber , name  , lastName , birthday , password){
         return this.user_login.insert(nationalNumber , new User(nationalNumber , name , lastName , 
             birthday ,password))
+    };
+    citySearch(cityName){
+        const temp = this.city.head;
+        while (temp){
+            if(temp.data.cityName === cityName){
+                return temp.data.cityCode
+            }
+            temp = temp.next;
+        }
+    }
+    displayCarInCity(cityCode){
+        if (!cityCode) return false;
+        const cars = new Linkedlist();
+        const temp = this.cars.table;
+        temp.forEach(car => {
+            let city = car.plateNumber.split("-")[1];
+            if (city === cityCode) cars.insert(car);
+            else return false;
+        });
+        
     };
 }

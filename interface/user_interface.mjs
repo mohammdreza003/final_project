@@ -18,6 +18,7 @@ export class User_menu {
       }
     }
   }
+  // has bug
   displayCars(national_number) {
     const displayCars = this.logic.displayCars(national_number);
   }

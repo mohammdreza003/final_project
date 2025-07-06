@@ -1,6 +1,6 @@
 import promptSync from "prompt-sync";
 const prompt = promptSync();
-export class Manager_menu{
+export class ManagerMenu{
     constructor(logic){
         this.logic  = logic;
     }
@@ -14,7 +14,10 @@ export class Manager_menu{
                 case 2:
                     this.displayUsers();
                     break
-                
+
+                case 3:
+                    this.displayCarInCity();
+                    break;
                 default:
                     break;
             }
@@ -26,5 +29,17 @@ export class Manager_menu{
     displayUsers(){
         console.log(this.logic.displayUsers());
     };
+    displayCarInCity(city){
+        const cityName = prompt("Enter the city name:");
+        const carInCity = this.logic.displayCarInCity(cityName);
+        if(!carInCity) {
+            console.log(`No car found in this city:${cityName}`);
+            
+        }
+    }
+
+    run(){
+        this.managerMenu();
+    }
 
 }

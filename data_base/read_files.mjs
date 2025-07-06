@@ -75,14 +75,14 @@ export class Readfile {
           );
 
           this.database.insertCar(carnode.key, carnode);
-          const isCar = this.database.search(carnode.ownerCar);
-          if (isCar){
-            console.log("*")
-            isCar.insert(carnode.key)
-          } else{
-            console.log("not found!!");
+          // const isCar = this.database.search(carnode.ownerCar);
+          // if (isCar){
+          //   console.log("*")
+          //   isCar.insert(carnode.key)
+          // } else{
+          //   console.log("not found!!");
             
-          }
+          // }
         }
       });
     } catch (err){
