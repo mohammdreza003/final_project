@@ -11,24 +11,24 @@ const handler = new Handler(dataBase);
 
 const logic = new Logic(handler, dataBase);
 const user_menu = new User_menu();
-const manager_menu = new ManagerMenu();
+const manager_menu = new ManagerMenu(logic);
 const interface_terminal = new Interface(logic, manager_menu, user_menu);
 const readFile = new Readfile(dataBase);
 
 // await readFile.readUser();
 // interface_terminal.run();
+
 async function main(){
     try {
     await readFile.readUser();
     await readFile.readCity();
     await readFile.readCar();
 
-    // console.log(dataBase.display(2));
-    interface_terminal.run();
-    // console.log(dataBase.search(9544838704).displayCar());
+    // interface_terminal.run();
   } catch (error) {
     console.error("error in start:", error);
   }
 }
+console.log(dataBase.displayCars());
 
 main();

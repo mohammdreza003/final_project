@@ -6,7 +6,7 @@ export class ManagerMenu{
     }
     managerMenu(){
         while (true){
-            const input  = prompt ("___manager menu____\n1.display all cars\n2.display all users\n3.display information about a car in city");
+            const input  = parseInt(prompt ("___manager menu____\n1.display all cars\n2.display all users\n3.display information about a car in city"));
             switch (input) {
                 case 1:
                     this.displayCars();
@@ -29,13 +29,19 @@ export class ManagerMenu{
     displayUsers(){
         console.log(this.logic.displayUsers());
     };
-    displayCarInCity(city){
-        const cityName = prompt("Enter the city name:");
-        const carInCity = this.logic.displayCarInCity(cityName);
+    displayCarInCity(){
+        console.log(this.logic.displayCity());
+        
+        const cityCode = prompt("Enter the city code in this list:");
+        const carInCity = this.logic.displayCarInCity(cityCode);
+        console.log('*');
+        
         if(!carInCity) {
-            console.log(`No car found in this city:${cityName}`);
+            console.log(`No car found in this city:${cityCode}`);
             
         }
+        console.log(carInCity);
+        
     }
 
     run(){

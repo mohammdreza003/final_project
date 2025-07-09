@@ -46,16 +46,16 @@ export  class Logic{
     displayUsers(){
         return this.database.displayUsers()
     }
+    displayCity(){
+        return this.database.displayCity()
+    }
     // displayCars(national_number){
     //     const user = this.database.search(national_number);
     //     if (!user) return false;
     //     user.display()
     // }
-    displayCarInCity(cityName){
-        const cityCode = this.database.citySearch(cityName);
-        if (!cityCode) return false;
-        const cars = this.database.displayCarInCity(cityCode);
-        if (!cars) return false;
-        return cars;
+    displayCarInCity(cityCode){
+        return this.database.displayCarInCity(cityCode);
+        
     }
 }

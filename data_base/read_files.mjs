@@ -48,8 +48,11 @@ export class Readfile {
         let field = line.trim().split("|");
         if (field.length === 2) {
           let cityNode = new City(field[0], field[1]);
-          this.database.insert(null, cityNode, 3);
+          this.database.insertCity(cityNode);
+
         }
+      console.log(this.database.displayCars())
+
       });
     } catch (err) {
       console.error(`error reading file city: ${err}`);

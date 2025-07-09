@@ -31,30 +31,20 @@ export class DataBase{
     insertCar(key , node){
         return this.cars.insert(key , node);
     };
-    // use switch for display
-    display(option){
-        switch (option) {
-            case 1:
-                
-                return this.user_login.display(); 
-
-            case 2:
-                return this.cars.display();
-
-            case 3:
-                return this.city.display();
-        
-            default:
-                break;
-        }  
+    insertCity(node){
+        return this.city.insert(node);
     }
+    
+    
     displayCars(){
       return this.cars.display();
     }
     displayUsers(){
         return this.user_login.display();
     };
-    
+    displayCity(){
+        return this.city.display();
+    }
     search(key){
 
         return this.user_login.search(key);
@@ -65,15 +55,19 @@ export class DataBase{
             birthday ,password))
     };
     citySearch(cityName){
-        const temp = this.city.head;
+        let temp = this.city.head;
         while (temp){
             if(temp.data.cityName === cityName){
+                console.log(temp.data.cityCode);
+                
                 return temp.data.cityCode
             }
             temp = temp.next;
         }
     }
     displayCarInCity(cityCode){
+        console.log('*');
+        
         if (!cityCode) return false;
         const cars = new Linkedlist();
         const temp = this.cars.table;
@@ -82,6 +76,19 @@ export class DataBase{
             if (city === cityCode) cars.insert(car);
             else return false;
         });
+        console.log('*');
+        
+       return this.displayCar(cars) 
         
     };
+    displayCar(cars){
+        let temp = cars.head;
+        while(temp){
+            if (!temp == null){
+                console.log(temp.data);
+                
+            }
+            temp = temp.next
+        } 
+    }
 }
