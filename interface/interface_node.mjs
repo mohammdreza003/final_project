@@ -54,7 +54,7 @@ export class Interface {
 
     const isAuthenticated = this.logic.user_login(national_number, password);
 
-    if (!isAuthenticated) {
+    if (isAuthenticated == false) {
       console.log("failed");
       return;
     }

@@ -47,11 +47,11 @@ export class Readfile {
         if (line.trim() === "") return;
         let field = line.trim().split("|");
         if (field.length === 2) {
-          let cityNode = new City(field[0], field[1]);
+          const cityNode = new City(field[0], field[1]);
           this.database.insertCity(cityNode);
 
         }
-      console.log(this.database.displayCars())
+      // console.log(this.database.displayCity())
 
       });
     } catch (err) {
@@ -87,6 +87,9 @@ export class Readfile {
             
           // }
         }
+        // console.log(this.database.displayCars());
+        
+
       });
     } catch (err){
       console.error(`error reading file cars: ${err}`);

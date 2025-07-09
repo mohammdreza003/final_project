@@ -58,4 +58,19 @@ export  class Logic{
         return this.database.displayCarInCity(cityCode);
         
     }
+    searchByTimeRange(startTime, endTime){
+        return this.database.searchByTimeRange(startTime, endTime);
+    };
+    changeUserName(nationalNumber , userNameNewName){
+        const user = this.database.search(nationalNumber);
+        console.log(user);
+        if (user && user !==undefined){
+            user.name = userNameNewName;
+            console.log(user);
+            return true
+            
+        }
+        return false;
+        
+    }
 }

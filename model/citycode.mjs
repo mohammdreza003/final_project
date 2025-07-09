@@ -4,7 +4,7 @@ export class City {
     this.cityName = cityName;
   }
 
-  tostring() {
+  toString() {
     return `
 city name  = ${this.cityName}
 city code = ${this.cityCode}

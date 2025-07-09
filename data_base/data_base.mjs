@@ -71,13 +71,20 @@ export class DataBase{
         if (!cityCode) return false;
         const cars = new Linkedlist();
         const temp = this.cars.table;
-        temp.forEach(car => {
+        // temp.forEach(car => {
+        //     let city = car.plateNumber.split("-")[1];
+        //     if (city === cityCode) cars.insert(car);
+        //     else return false;
+        // });
+        // console.log('*');
+        for(let i =0 ; i<temp.length ; i++){
+            let car = temp[i];
+            if (car === undefined) continue;
             let city = car.plateNumber.split("-")[1];
-            if (city === cityCode) cars.insert(car);
-            else return false;
-        });
-        console.log('*');
-        
+            if (city === cityCode){
+                cars.insert(car);
+            }
+        }
        return this.displayCar(cars) 
         
     };
@@ -91,4 +98,17 @@ export class DataBase{
             temp = temp.next
         } 
     }
+    searchByTimeRange(startTime, endTime){
+        const cars = new Linkedlist();
+        const temp = this.cars.table;
+        for(let i =0 ; i<temp.length ; i++){
+            let car = temp[i];
+            if (car === undefined || car.year === undefined) continue;
+            if (car.year >= startTime && car.year <= endTime) {
+                cars.insert(car);
+            }
+        }
+        return this.displayCar(cars);
+    }
+    
 }

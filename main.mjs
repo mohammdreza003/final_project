@@ -24,11 +24,15 @@ async function main(){
     await readFile.readCity();
     await readFile.readCar();
 
-    // interface_terminal.run();
+    interface_terminal.run();
   } catch (error) {
     console.error("error in start:", error);
   }
 }
-console.log(dataBase.displayCars());
+// console.log(dataBase.displayCars())
+console.log(dataBase.displayUsers());
+
+// console.log(dataBase.displayCars());
+
 
 main();
