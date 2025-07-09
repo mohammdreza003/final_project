@@ -23,16 +23,12 @@ async function main(){
     await readFile.readUser();
     await readFile.readCity();
     await readFile.readCar();
-
-    interface_terminal.run();
+    
+      console.log(dataBase.searchByTimeRange(2010 , 2020));
+    // interface_terminal.run();
   } catch (error) {
     console.error("error in start:", error);
   }
 }
-// console.log(dataBase.displayCars())
-console.log(dataBase.displayUsers());
-
-// console.log(dataBase.displayCars());
-
 
 main();

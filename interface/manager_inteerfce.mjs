@@ -40,7 +40,7 @@ export class ManagerMenu{
     displayCarInCity(){
         console.log(this.logic.displayCity());
         
-        const cityCode = prompt("Enter the city code in this list:");
+        const cityCode = parseInt(prompt("Enter the city code in this list:"));
         const carInCity = this.logic.displayCarInCity(cityCode);
         console.log('*');
         
@@ -52,9 +52,14 @@ export class ManagerMenu{
         
     }
     searchByTimeRange(){
-        const startTime = prompt("Enter the start time (YYYY) :");
-        const endtime = prompt("Enter the end time (YYYY) :");
+        const startTime = parseInt(prompt("Enter the start time (YYYY) :"));
+        const endtime = parseInt(prompt("Enter the end time (YYYY) :"));
         const cars = this.logic.searchByTimeRange(startTime, endtime);
+        if (cars ==false)return console.log("failed!! ");
+        console.log(cars);
+        
+        
+        
         // if 
     }
 

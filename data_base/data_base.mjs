@@ -1,7 +1,7 @@
 import { Dynamichash } from "../data_structure/hashtable.mjs";
 import { Linkedlist } from "../data_structure/linkedlist.mjs";
 import { User } from "../model/users.mjs";
-
+import { searchByRangeCars } from "../model/carForSearchByRange.mjs";
 
 
 export class DataBase{
@@ -79,7 +79,7 @@ export class DataBase{
         // console.log('*');
         for(let i =0 ; i<temp.length ; i++){
             let car = temp[i];
-            if (car === undefined) continue;
+            if (car === undefined || car === null) continue;
             let city = car.plateNumber.split("-")[1];
             if (city === cityCode){
                 cars.insert(car);
@@ -103,12 +103,22 @@ export class DataBase{
         const temp = this.cars.table;
         for(let i =0 ; i<temp.length ; i++){
             let car = temp[i];
-            if (car === undefined || car.year === undefined) continue;
-            if (car.year >= startTime && car.year <= endTime) {
-                cars.insert(car);
+            if (car !== null) {
+                if (car.year >= startTime && car.year <= endTime) {
+                    
+                    cars.insert(new searchByRangeCars(car.name , car.year, 
+                        car.color, car.plateNumber));
+            }
             }
         }
-        return this.displayCar(cars);
+        return cars.display();
+    }
+    test(){
+        const copy = this.cars.table
+        for (let i = 0 ; i<copy.length ; i++){
+            console.log(copy[i]);
+            
+        }
     }
     
 }
