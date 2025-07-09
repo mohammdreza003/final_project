@@ -1,4 +1,3 @@
-PenaltyID | DriverID | PlateNumber | PenaltyDate | PenaltyLevel | Description
 428770 | 40246972 | 28G206-44 | 2024-10-12 | High | No seatbelt
 951768 | 33528270 | 75D715-44 | 2023-03-15 | Medium | Running red light
 962343 | 17952971 | 73B338-22 | 2024-01-04 | Low | Illegal parking

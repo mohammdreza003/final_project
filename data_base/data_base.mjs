@@ -9,6 +9,7 @@ export class DataBase{
         this.user_login = new Dynamichash();
         this.cars = new Dynamichash();
         this.city = new Linkedlist();
+        this.penalties = new Dynamichash();
     };
     // change name for clean code
     // change switch insert
@@ -34,6 +35,9 @@ export class DataBase{
     insertCity(node){
         return this.city.insert(node);
     }
+    insertPenalty(key , node){
+        return this.penalties.insert(key , node);
+    };
     
     
     displayCars(){
@@ -45,6 +49,10 @@ export class DataBase{
     displayCity(){
         return this.city.display();
     }
+    displayPenalties(){
+        return this.penalties.display();
+    };
+    
     search(key){
 
         return this.user_login.search(key);
@@ -91,16 +99,6 @@ export class DataBase{
         return cars.display() 
         
     };
-    displayCar(cars){
-        let temp = cars.head;
-        while(temp){
-            if (!temp == null){
-                console.log(temp.data);
-                
-            }
-            temp = temp.next
-        } 
-    }
     searchByTimeRange(startTime, endTime){
         const cars = new Linkedlist();
         const temp = this.cars.table;

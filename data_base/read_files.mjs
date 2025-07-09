@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import { User } from "../model/users.mjs";
 import { Cars } from "../model/cars.mjs";
 import { City } from "../model/citycode.mjs";
-import { log } from "console";
+import { penaltiesNode } from "../model/penaltiesNode.mjs";
 
 export class Readfile {
   constructor(DataBase) {
@@ -93,6 +93,32 @@ export class Readfile {
       });
     } catch (err){
       console.error(`error reading file cars: ${err}`);
+    }
+  }
+  async readPenaltes(){
+    try{
+      let data = await fs.readFile("./data_base/test_file/penalties.txt" , "utf8");
+      let lines = data.split("\n");
+
+      lines.forEach((line) =>{
+        if (line.trim() === "") return ;
+        let field = line.trim().split("|");
+        if (field.length === 6){
+          let penaltyNode = new penaltiesNode(
+            field[0],
+            field[1],
+            field[2],
+            field[3],
+            field[4],
+            field[5]
+          )
+          this.database.insertPenalty(penaltyNode.key , penaltyNode);
+        }
+      })
+
+    }catch(err){
+      console.log(`error reading file penalties:${err}`);
+      
     }
   }
 }

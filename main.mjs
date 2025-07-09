@@ -23,9 +23,14 @@ async function main(){
     await readFile.readUser();
     await readFile.readCity();
     await readFile.readCar();
+    await readFile.readPenaltes();
     
       // console.log(dataBase.searchByTimeRange(2010 , 2020));
-      console.log(dataBase.displayCarInCity(91));
+      // console.log(dataBase.displayCarInCity(91));
+      // console.log(dataBase.displayCars());
+      console.log(dataBase.displayPenalties());
+      
+      
       
     // interface_terminal.run();
   } catch (error) {
