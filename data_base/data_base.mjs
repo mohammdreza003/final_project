@@ -79,13 +79,16 @@ export class DataBase{
         // console.log('*');
         for(let i =0 ; i<temp.length ; i++){
             let car = temp[i];
-            if (car === undefined || car === null) continue;
-            let city = car.plateNumber.split("-")[1];
-            if (city === cityCode){
+            if (car != null){
+                let city = car.plateNumber.split("-")[1];
+            if (city == cityCode){
+                
                 cars.insert(car);
             }
+            }
         }
-       return this.displayCar(cars) 
+            
+        return cars.display() 
         
     };
     displayCar(cars){

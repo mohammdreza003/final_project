@@ -24,7 +24,9 @@ async function main(){
     await readFile.readCity();
     await readFile.readCar();
     
-      console.log(dataBase.searchByTimeRange(2010 , 2020));
+      // console.log(dataBase.searchByTimeRange(2010 , 2020));
+      console.log(dataBase.displayCarInCity(91));
+      
     // interface_terminal.run();
   } catch (error) {
     console.error("error in start:", error);
