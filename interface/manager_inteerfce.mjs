@@ -6,7 +6,7 @@ export class ManagerMenu{
     }
     managerMenu(){
         while (true){
-            const input  = parseInt(prompt ("___manager menu____\n1.display all cars\n2.display all users\n3.display information about a car in city\n4.Search within a time range\n5.change user name\n6.display driver\n7.delete car"));
+            const input  = parseInt(prompt ("___manager menu____\n1.display all cars\n2.display all users\n3.display information about a car in city\n4.Search within a time range\n5.change user name\n6.display driver\n7.delete car\n8.give driving licence\n9.chnge status driver"));
             switch (input) {
                 case 1:
                     this.displayCars();
@@ -30,6 +30,12 @@ export class ManagerMenu{
                     break
                 case 7:
                     this.deleteCar()
+                    break
+                case 8:
+                    this.giveDrivingLicence();
+                    break
+                case 9:
+                    this.changeStatusDriver();
                     break
 
                 default:
@@ -84,6 +90,60 @@ export class ManagerMenu{
         const status = this.logic.deleteCar(carCode);
         if (status == false) return console.log("can not delete this car!!");
         console.log("deleted.");
+        
+    }
+    giveDrivingLicence(){
+       
+        try{
+            const nationalNumber = parseInt(prompt("Enter national id :"));
+            const check = this.logic.searchDriver(nationalNumber);
+            if (check) return console.log("this user already exist!!");
+            while(true){
+                const input  = parseInt(prompt("enter driving number (please enter at least 8 character and number):"));
+                if (this.logic.checkDriverId(input) == true) {
+                    const giveLicence = this.logic.giveDrivingLicence(nationalNumber , input)
+                    if (giveLicence == true)return console.log("done.");
+                    
+                }; 
+
+            }
+            
+
+        }catch(err){
+            console.log(`${err}`);
+            
+        }
+        
+
+    }
+    changeStatusDriver(){
+        while (true){
+            const input = parseInt(prompt("1.change with national id\n2.change with driver id"))
+            switch (input) {
+                case 1:
+                    this.changeWithNationalId();
+                    break;
+                case 2:
+                    this.changeWithDriverId();
+                    break
+                default:
+                    break;
+            }
+        }
+    }
+    changeWithNationalId(){
+        const nationalNumber = parseInt(prompt("input the national number:"))
+        const check = this.database.changeWithNationalId(nationalNumber)
+        if (check == true)return console.log("done.");
+        return console.log("not found !!");
+        
+        
+    }
+    changeWithDriverId(){
+        const driverId = parseInt(prompt("enter the driver id:"));
+        const check = this.database.changeWithDriverId(driverId);
+        if (check == true)return console.log("done.");
+        return console.log("not found !!");
         
     }
 

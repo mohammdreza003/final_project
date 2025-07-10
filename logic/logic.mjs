@@ -87,5 +87,36 @@ export  class Logic{
         return true;
         // database ezaf nashode!!
 
+    };
+    searchDriver(nationalNumber){
+        return this.database.searchDriver(nationalNumber)
+    };
+    checkDriverId(driverId){
+        if(driverId.length !== 8)return false;
+        const checkStatus = this.database.checkDriverId(driverId)
+        if (!checkStatus) return false
+        return true
+    };
+    changeWithNationalId(nationalNumber){
+        const check = this.database.searchDriver(nationalNumber);
+        if (check == false) return false;
+        if (check.status == true){
+            check.status == false;
+            return true;
+
+        };
+        check.status == false;
+        return true
+    }
+    changeWithDriverId(driverId){
+        const check = this.database.checkDriverId(driverId);
+        if (check == false) return false;
+        if (check.status == true){
+            check.status == false;
+            return true;
+        }
+        check.status == false;
+        return true;
+        
     }
 }

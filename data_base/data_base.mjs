@@ -84,12 +84,6 @@ export class DataBase{
         if (!cityCode) return false;
         const cars = new Linkedlist();
         const temp = this.cars.table;
-        // temp.forEach(car => {
-        //     let city = car.plateNumber.split("-")[1];
-        //     if (city === cityCode) cars.insert(car);
-        //     else return false;
-        // });
-        // console.log('*');
         for(let i =0 ; i<temp.length ; i++){
             let car = temp[i];
             if (car != null){
@@ -131,6 +125,18 @@ export class DataBase{
     searchCar(key){
         return this.cars.search(key);
     }
+    searchDriver(key){
+        return this.driver.search(key);
+    };
+   
+    checkDriverId(driverId){
+        let temp = this.driver.table;
+        for (let i = 0 ; i<temp.length ; i++){
+            if (temp[i].driverId == driverId)return temp[i];
+        }
+        return false;
+    }
+    // remove test
     test(){
         const copy = this.cars.table
         for (let i = 0 ; i<copy.length ; i++){
