@@ -85,7 +85,7 @@ export  class Logic{
         console.log(this.database.displayCars());
         
         return true;
-        // database ezaf nashode!!
+       
 
     };
     searchDriver(nationalNumber){

@@ -22,34 +22,7 @@ export class Linkedlist {
     }
   }
 
-  remove_first() {
-    let temp = this.head;
-    if (temp === null) {
-      return;
-    }
-    this.head = temp.next;
-  }
-  remove_by_data(data_code) {
-    let temp = this.head;
-    if (temp === null) return;
-
-    if (temp.data.code === data_code) {
-      this.remove_first();
-      return;
-    }
-
-    while (temp.next !== null) {
-      if (temp.next.data.code === data_code) {
-        temp.next = temp.next.next;
-        return console.log("true");
-      }
-      temp = temp.next;
-      if (temp.next === null) {
-        this.end = temp;
-      }
-    }
-    return console.log("false");
-  }
+ 
 
   search(data) {
     let temp = this.head;
