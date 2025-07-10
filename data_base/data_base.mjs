@@ -136,13 +136,6 @@ export class DataBase{
         }
         return false;
     }
-    // remove test
-    test(){
-        const copy = this.cars.table
-        for (let i = 0 ; i<copy.length ; i++){
-            console.log(copy[i]);
-            
-        }
-    }
+   
     
 }
