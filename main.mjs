@@ -24,11 +24,14 @@ async function main(){
     await readFile.readCity();
     await readFile.readCar();
     await readFile.readPenaltes();
+    await readFile.readDriver()
     
       // console.log(dataBase.searchByTimeRange(2010 , 2020));
       // console.log(dataBase.displayCarInCity(91));
       // console.log(dataBase.displayCars());
-      console.log(dataBase.displayPenalties());
+      // console.log(dataBase.displayPenalties());
+      console.log(dataBase.displayDriver());
+      
       
       
       

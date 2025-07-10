@@ -73,4 +73,7 @@ export  class Logic{
         return false;
         
     }
+    displayDriver(){
+        return this.database.displayDriver();
+    }
 }

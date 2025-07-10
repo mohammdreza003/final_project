@@ -10,6 +10,7 @@ export class DataBase{
         this.cars = new Dynamichash();
         this.city = new Linkedlist();
         this.penalties = new Dynamichash();
+        this.driver = new Dynamichash();
     };
     // change name for clean code
     // change switch insert
@@ -38,6 +39,9 @@ export class DataBase{
     insertPenalty(key , node){
         return this.penalties.insert(key , node);
     };
+    insertDriver(key , node){
+        return this.driver.insert(key , node);
+    }
     
     
     displayCars(){
@@ -113,6 +117,9 @@ export class DataBase{
             }
         }
         return cars.display();
+    }
+    displayDriver(){
+        return this.driver.display();
     }
     test(){
         const copy = this.cars.table

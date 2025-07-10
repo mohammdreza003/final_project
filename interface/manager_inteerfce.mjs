@@ -6,7 +6,7 @@ export class ManagerMenu{
     }
     managerMenu(){
         while (true){
-            const input  = parseInt(prompt ("___manager menu____\n1.display all cars\n2.display all users\n3.display information about a car in city\n4.Search within a time range\n5.change user name "));
+            const input  = parseInt(prompt ("___manager menu____\n1.display all cars\n2.display all users\n3.display information about a car in city\n4.Search within a time range\n5.change user name\n6.display driver"));
             switch (input) {
                 case 1:
                     this.displayCars();
@@ -24,6 +24,9 @@ export class ManagerMenu{
                     break;
                 case 5:
                     this.changeUserName();
+                    break
+                case 6:
+                    this.displayDriver();
                     break
 
                 default:
@@ -57,10 +60,7 @@ export class ManagerMenu{
         const cars = this.logic.searchByTimeRange(startTime, endtime);
         if (cars ==false)return console.log("failed!! ");
         console.log(cars);
-        
-        
-        
-        // if 
+    
     }
 
     changeUserName(){
@@ -71,7 +71,11 @@ export class ManagerMenu{
         console.log("succesful.");
         
         
-    }   
+    }  
+    displayDriver(){
+        console.log(this.logic.displayDriver());
+        
+    } 
 
     run(){
         this.managerMenu();

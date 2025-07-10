@@ -3,6 +3,7 @@ import { User } from "../model/users.mjs";
 import { Cars } from "../model/cars.mjs";
 import { City } from "../model/citycode.mjs";
 import { penaltiesNode } from "../model/penaltiesNode.mjs";
+import { driverNode } from "../model/driver.mjs";
 
 export class Readfile {
   constructor(DataBase) {
@@ -120,5 +121,21 @@ export class Readfile {
       console.log(`error reading file penalties:${err}`);
       
     }
+  }
+  async readDriver(){
+    let data = await fs.readFile("./data_base/test_file/drivers.txt" , "utf8");
+    let lines = data.split("\n");
+    lines.forEach((line) =>{
+      if (line.trim() === "") return;
+      let field = line.trim().split("|");
+      if (field.length === 3){
+        let driver = new driverNode(
+          field[0],
+          field[1],
+          field[2]
+        )
+        this.database.insertDriver(driver.key , driver)
+      }
+    })
   }
 }
