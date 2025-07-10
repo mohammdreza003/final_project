@@ -79,9 +79,11 @@ export  class Logic{
     deleteCar(carCode){
         const search = this.database.searchCar(carCode);
         if (search == false)return false;
-        this.database.carPlateInsert(search.plateNumber);
-        const deleteCar = this.database.deleteCar();
+        this.database.carPlateInsert(search.plateNumber , false);
+        const deleteCar = this.database.deleteCar(carCode);
         if(deleteCar == false)return false;
+        console.log(this.database.displayCars());
+        
         return true;
         // database ezaf nashode!!
 
