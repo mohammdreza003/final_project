@@ -76,4 +76,14 @@ export  class Logic{
     displayDriver(){
         return this.database.displayDriver();
     }
+    deleteCar(carCode){
+        const search = this.database.searchCar(carCode);
+        if (search == false)return false;
+        this.database.carPlateInsert(search.plateNumber);
+        const deleteCar = this.database.deleteCar();
+        if(deleteCar == false)return false;
+        return true;
+        // database ezaf nashode!!
+
+    }
 }

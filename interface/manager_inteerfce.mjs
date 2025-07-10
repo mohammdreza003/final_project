@@ -6,7 +6,7 @@ export class ManagerMenu{
     }
     managerMenu(){
         while (true){
-            const input  = parseInt(prompt ("___manager menu____\n1.display all cars\n2.display all users\n3.display information about a car in city\n4.Search within a time range\n5.change user name\n6.display driver"));
+            const input  = parseInt(prompt ("___manager menu____\n1.display all cars\n2.display all users\n3.display information about a car in city\n4.Search within a time range\n5.change user name\n6.display driver\n7.delete car"));
             switch (input) {
                 case 1:
                     this.displayCars();
@@ -27,6 +27,9 @@ export class ManagerMenu{
                     break
                 case 6:
                     this.displayDriver();
+                    break
+                case 7:
+                    this.deleteCar()
                     break
 
                 default:
@@ -75,7 +78,14 @@ export class ManagerMenu{
     displayDriver(){
         console.log(this.logic.displayDriver());
         
-    } 
+    }
+    deleteCar(){
+        const carCode = parseInt(prompt("Enter car code to delete :"));
+        const status = this.logic.deleteCar(carCode);
+        if (status == false) return console.log("can not delete this car!!");
+        console.log("deleted.");
+        
+    }
 
     run(){
         this.managerMenu();

@@ -30,12 +30,12 @@ async function main(){
       // console.log(dataBase.displayCarInCity(91));
       // console.log(dataBase.displayCars());
       // console.log(dataBase.displayPenalties());
-      console.log(dataBase.displayDriver());
+      // console.log(dataBase.displayDriver());
       
       
       
       
-    // interface_terminal.run();
+    interface_terminal.run();
   } catch (error) {
     console.error("error in start:", error);
   }
