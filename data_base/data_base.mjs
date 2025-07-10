@@ -13,24 +13,7 @@ export class DataBase{
         this.driver = new Dynamichash();
         this.carPlate = new Linkedlist();
     };
-    // change name for clean code
-    // change switch insert
-    insert(key , node , option){
-        switch (option) {
-            case 1:
-                return this.user_login.insert(key , node);
-                
-            case 2:
-                return this.cars.insert(key , node)
-
-            case 3:
-                return this.city.insert(node)
-
-            
-            default:
-                break;
-        }
-    };
+    
     insertCar(key , node){
         return this.cars.insert(key , node);
     };
@@ -79,7 +62,6 @@ export class DataBase{
         }
     }
     displayCarInCity(cityCode){
-        console.log('*');
         
         if (!cityCode) return false;
         const cars = new Linkedlist();
